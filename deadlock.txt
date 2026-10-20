@@ -1,0 +1,42 @@
+Found one Java-level deadlock:
+=============================
+"transfer-0":
+  waiting to lock monitor 0x0000024c3a0af380 (object 0x000000071a021a50, a edu.itc.se.lab01.task5.DeadlockDemo$Account),
+  which is held by "transfer-3"
+
+"transfer-3":
+  waiting to lock monitor 0x0000024c3a0af790 (object 0x000000071a021a38, a edu.itc.se.lab01.task5.DeadlockDemo$Account),
+  which is held by "transfer-6"
+
+"transfer-6":
+  waiting to lock monitor 0x0000024c3a0af380 (object 0x000000071a021a50, a edu.itc.se.lab01.task5.DeadlockDemo$Account),
+  which is held by "transfer-3"
+
+Java stack information for the threads listed above:
+===================================================
+"transfer-0":
+	at edu.itc.se.lab01.task5.DeadlockDemo.transfer(DeadlockDemo.java:19)
+	- waiting to lock <0x000000071a021a50> (a edu.itc.se.lab01.task5.DeadlockDemo$Account)
+	- locked <0x000000071a021a68> (a edu.itc.se.lab01.task5.DeadlockDemo$Account)
+	at edu.itc.se.lab01.task5.DeadlockDemo.lambda$main$0(DeadlockDemo.java:38)
+	at edu.itc.se.lab01.task5.DeadlockDemo$$Lambda/0x0000000031040c00.run(Unknown Source)
+	at java.lang.Thread.runWith(java.base@25/Thread.java:1487)
+	at java.lang.Thread.run(java.base@25/Thread.java:1474)
+"transfer-3":
+	at edu.itc.se.lab01.task5.DeadlockDemo.transfer(DeadlockDemo.java:19)
+	- waiting to lock <0x000000071a021a38> (a edu.itc.se.lab01.task5.DeadlockDemo$Account)
+	- locked <0x000000071a021a50> (a edu.itc.se.lab01.task5.DeadlockDemo$Account)
+	at edu.itc.se.lab01.task5.DeadlockDemo.lambda$main$0(DeadlockDemo.java:38)
+	at edu.itc.se.lab01.task5.DeadlockDemo$$Lambda/0x0000000031040c00.run(Unknown Source)
+	at java.lang.Thread.runWith(java.base@25/Thread.java:1487)
+	at java.lang.Thread.run(java.base@25/Thread.java:1474)
+"transfer-6":
+	at edu.itc.se.lab01.task5.DeadlockDemo.transfer(DeadlockDemo.java:19)
+	- waiting to lock <0x000000071a021a50> (a edu.itc.se.lab01.task5.DeadlockDemo$Account)
+	- locked <0x000000071a021a38> (a edu.itc.se.lab01.task5.DeadlockDemo$Account)
+	at edu.itc.se.lab01.task5.DeadlockDemo.lambda$main$0(DeadlockDemo.java:38)
+	at edu.itc.se.lab01.task5.DeadlockDemo$$Lambda/0x0000000031040c00.run(Unknown Source)
+	at java.lang.Thread.runWith(java.base@25/Thread.java:1487)
+	at java.lang.Thread.run(java.base@25/Thread.java:1474)
+
+Found 1 deadlock.
